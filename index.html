@@ -5,19 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nordic Webpartner | Vi bygger hemsidor som konverterar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Clash Display';
-            src: url('https://cdn.jsdelivr.net/gh/nickymarino/public@master/fonts/ClashDisplay-Variable.woff2') format('woff2');
-            font-weight: 200 700;
-        }
-        @font-face {
-            font-family: 'Satoshi';
-            src: url('https://cdn.jsdelivr.net/gh/nickymarino/public@master/fonts/Satoshi-Variable.woff2') format('woff2');
-            font-weight: 300 900;
-        }
-
         :root {
             --bg-deep: #050508;
             --bg-secondary: #0C0C12;
@@ -35,24 +25,24 @@
         html { scroll-behavior: smooth; }
         
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-deep);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 { font-family: 'Satoshi', sans-serif; font-weight: 700; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
 
-        /* Animated Mesh Gradient */
+        /* Animated Mesh Gradient Background */
         .mesh-gradient {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
             background: 
-                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 229, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 30% at 50% 100%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 229, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 50% 100%, rgba(255, 107, 107, 0.06) 0%, transparent 50%),
                 var(--bg-deep);
             animation: meshMove 20s ease-in-out infinite;
         }
@@ -68,7 +58,7 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.03;
+            opacity: 0.02;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             pointer-events: none;
         }
@@ -78,10 +68,10 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(5, 5, 8, 0.7);
+            background: rgba(5, 5, 8, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
+            padding: 0.875rem 0;
         }
 
         .nav-container {
@@ -93,40 +83,36 @@
             align-items: center;
         }
 
+        /* PROFESSIONAL LOGO */
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.875rem;
             text-decoration: none;
         }
 
         .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Clash Display', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+            width: 42px;
+            height: 42px;
+            position: relative;
+        }
+
+        .logo-icon svg {
+            width: 100%; height: 100%;
+            filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.4));
         }
 
         .logo-text {
-            font-family: 'Satoshi', sans-serif;
-            font-size: 1.4rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
 
         .logo-text span { 
             font-weight: 500; 
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-cyan);
         }
 
         .nav-links {
@@ -161,17 +147,27 @@
         .nav-cta {
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
             color: white;
-            padding: 0.6rem 1.5rem;
+            padding: 0.65rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.35);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -189,7 +185,7 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: url('images/tech-dark.jpg') center/cover;
-            opacity: 0.15;
+            opacity: 0.25;
             z-index: -3;
         }
 
@@ -206,12 +202,13 @@
             gap: 0.5rem;
             padding: 0.6rem 1.2rem;
             background: rgba(0, 229, 255, 0.1);
-            border: 1px solid rgba(0, 229, 255, 0.2);
+            border: 1px solid rgba(0, 229, 255, 0.25);
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             color: var(--accent-cyan);
             margin-bottom: 2rem;
             animation: fadeInDown 0.8s ease;
+            font-weight: 500;
         }
 
         @keyframes fadeInDown {
@@ -220,26 +217,29 @@
         }
 
         .hero h1 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 600;
-            line-height: 1.05;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.8rem, 6.5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease 0.2s both;
+            letter-spacing: -0.02em;
         }
 
         .hero h1 .gradient-text {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-coral));
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-coral) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto 2.5rem;
             animation: fadeInUp 0.8s ease 0.4s both;
+            line-height: 1.7;
         }
 
         @keyframes fadeInUp {
@@ -257,7 +257,7 @@
 
         .btn {
             padding: 1rem 2.5rem;
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 600;
             font-size: 1rem;
             text-decoration: none;
@@ -277,13 +277,13 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 229, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            border: 1px solid var(--border);
+            border: 1.5px solid var(--border);
         }
 
         .btn-secondary:hover {
@@ -304,12 +304,13 @@
         }
 
         .hero-stat-number {
-            font-family: 'Clash Display', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.5rem;
-            font-weight: 600;
+            font-weight: 700;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-coral));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-stat-label {
@@ -343,10 +344,11 @@
         }
 
         .section h2 {
-            font-family: 'Clash Display', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.3rem, 5vw, 3.2rem);
+            font-weight: 700;
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
         .section p { 
@@ -370,7 +372,7 @@
         .service-card {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2.5rem;
             transition: all 0.4s ease;
             position: relative;
@@ -388,30 +390,37 @@
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: rgba(0, 229, 255, 0.2);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
         .service-card:hover::before { transform: scaleX(1); }
 
         .service-icon {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(99, 102, 241, 0.1));
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
             margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 229, 255, 0.15);
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent-cyan);
         }
 
         .service-card h3 {
-            font-family: 'Satoshi', sans-serif;
-            font-size: 1.4rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
             color: var(--text-primary);
+            font-weight: 600;
         }
 
         .service-card p {
@@ -427,16 +436,16 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .pricing-card {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 2.5rem;
             position: relative;
             transition: all 0.3s ease;
@@ -445,7 +454,7 @@
         .pricing-card.popular {
             border-color: var(--accent-coral);
             box-shadow: 0 0 40px rgba(255, 107, 107, 0.1);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .popular-badge {
@@ -462,24 +471,27 @@
         }
 
         .pricing-card h3 {
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .pricing-card .description {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            font-size: 1rem;
         }
 
         .price {
-            font-family: 'Clash Display', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
             margin-bottom: 0.25rem;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-coral));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .price span {
@@ -506,21 +518,17 @@
             gap: 0.75rem;
             padding: 0.75rem 0;
             border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         .features li:last-child { border-bottom: none; }
 
         .features li::before {
-            content: '✓';
-            width: 24px;
-            height: 24px;
-            background: rgba(0, 229, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-cyan);
-            font-size: 0.75rem;
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300E5FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/contain no-repeat;
             flex-shrink: 0;
         }
 
@@ -551,8 +559,13 @@
 
         .about-images img {
             width: 100%;
-            border-radius: 16px;
+            border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .about-images img:hover {
+            transform: scale(1.02);
         }
 
         .about-images img:first-child {
@@ -560,14 +573,16 @@
         }
 
         .about-text h3 {
-            font-family: 'Clash Display', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .about-text p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
         .stats {
@@ -578,11 +593,13 @@
         }
 
         .stat h4 {
-            font-family: 'Clash Display', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-coral));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
 
         .stat p {
@@ -604,14 +621,16 @@
         }
 
         .contact-info h3 {
-            font-family: 'Clash Display', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.75rem;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .contact-info p {
             color: var(--text-secondary);
             margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
         .contact-details {
@@ -627,21 +646,26 @@
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+        }
+
+        .contact-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent-cyan);
         }
 
         .contact-form {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2.5rem;
         }
 
@@ -654,6 +678,7 @@
             margin-bottom: 0.5rem;
             color: var(--text-secondary);
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .form-group input,
@@ -702,22 +727,19 @@
         }
 
         .footer-logo-icon {
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Clash Display', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: white;
+            width: 36px;
+            height: 36px;
+        }
+
+        .footer-logo-icon svg {
+            width: 100%; height: 100%;
+            filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3));
         }
 
         .footer-logo-text {
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .footer-links {
@@ -750,6 +772,8 @@
             .contact-content { grid-template-columns: 1fr; }
             .footer-content { flex-direction: column; gap: 2rem; text-align: center; }
             .pricing-card.popular { transform: scale(1); }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -761,7 +785,30 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">N</div>
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00E5FF"/>
+                                <stop offset="100%" style="stop-color:#6366F1"/>
+                            </linearGradient>
+                            <linearGradient id="logoGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FF6B6B"/>
+                                <stop offset="100%" style="stop-color:#00E5FF"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer hexagon -->
+                        <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+                        <!-- Inner N shape -->
+                        <path d="M30 65 L30 35 L50 50 L70 35 L70 65" fill="none" stroke="url(#logoGrad2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Connection dots -->
+                        <circle cx="50" cy="50" r="4" fill="#00E5FF"/>
+                        <circle cx="30" cy="35" r="2.5" fill="#6366F1"/>
+                        <circle cx="70" cy="35" r="2.5" fill="#6366F1"/>
+                        <circle cx="30" cy="65" r="2.5" fill="#FF6B6B"/>
+                        <circle cx="70" cy="65" r="2.5" fill="#FF6B6B"/>
+                    </svg>
+                </div>
                 <div class="logo-text">Nordic <span>Webpartner</span></div>
             </a>
             <ul class="nav-links">
@@ -780,7 +827,10 @@
         <div class="hero-bg-image"></div>
         <div class="hero-content">
             <div class="hero-badge">
-                <span>⚡</span> Svensk webbyrå för småföretag
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                Svensk webbyrå för småföretag
             </div>
             <h1>Vi bygger hemsidor som <span class="gradient-text">konverterar</span></h1>
             <p class="hero-subtitle">Professionella webbplatser för restauranger, butiker och småföretag. Modern design, snabb laddtid och synlig på Google – från 5 995 kr.</p>
@@ -809,37 +859,69 @@
     <section class="section services" id="tjanster">
         <div class="section-header">
             <div class="section-tag">Vad vi gör</div>
-            <h2>Tjänster för din digitala framgang</h2>
+            <h2>Tjänster för din digitala framgång</h2>
             <p>Vi hjälper företag i alla branscher att synas online och få fler kunder</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
+            <            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.586 7.586"></path>
+                        <circle cx="11" cy="11" r="2"></circle>
+                    </svg>
+                </div>
                 <h3>Webbdesign</h3>
                 <p>Unik, modern design som speglar ert varumärke. Vi skapar visuellt slående webbplatser som fångar besökarnas uppmärksamhet och bygger förtroende.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">⚡</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
                 <h3>Snabba hemsidor</h3>
                 <p>Optimerad kod och bilder för blixtsnabb laddtid. Google älskar snabba sidor – och det gör dina besökare också. Bättre SEO, lägre avvisningsfrekvens.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">📱</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
                 <h3>Mobilanpassat</h3>
                 <p>70% av besökarna kommer från mobilen. Därför designar vi alltid mobile-first – så er hemsida ser perfekt ut på alla skärmar.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🔍</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
                 <h3>SEO-optimering</h3>
                 <p>Vi bygger in sökmotoroptimering från start. Rätt struktur, snabb hastighet och optimerat innehåll hjälper er att synas högt på Google.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🛠️</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                </div>
                 <h3>Underhåll & Support</h3>
                 <p>Vi finns här även efter lansering. Uppdateringar, säkerhetsfixar och teknisk support – så ni kan fokusera på er verksamhet.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚀</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="6" y1="3" x2="6" y2="15"></line>
+                        <circle cx="18" cy="6" r="3"></circle>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <path d="M18 9a9 9 0 0 1-9 9"></path>
+                    </svg>
+                </div>
                 <h3>Lansering & Hosting</h3>
                 <p>Vi sköter allt från domän till drift. SSL-certifikat, e-postkonton och snabb hosting ingår – så ni är igång direkt.</p>
             </div>
@@ -860,12 +942,12 @@
                 <div class="price">5 995 <span>kr</span></div>
                 <p class="price-note">Engångskostnad, inga månadsavgifter</p>
                 <ul class="features">
-                    <li> Professionell webbdesign</li>
-                    <li> Upp till 5 sidor</li>
-                    <li> Mobilanpassad</li>
-                    <li> Kontaktformulär</li>
-                    <li> Grundläggande SEO</li>
-                    <li> 1 bildbehandling</li>
+                    <li>Professionell webbdesign</li>
+                    <li>Upp till 5 sidor</li>
+                    <li>Mobilanpassad</li>
+                    <li>Kontaktformulär</li>
+                    <li>Grundläggande SEO</li>
+                    <li>1 bildbehandling</li>
                 </ul>
                 <a href="#kontakt" class="btn btn-secondary btn-full">Välj Standard</a>
             </div>
@@ -876,13 +958,13 @@
                 <div class="price">7 500 <span>kr</span></div>
                 <p class="price-note">Engångskostnad, inga månadsavgifter</p>
                 <ul class="features">
-                    <li> Allt i Standard, plus:</li>
-                    <li> Upp till 10 sidor</li>
-                    <li> Avancerad SEO</li>
-                    <li> Bildspel & animationer</li>
-                    <li> 5 bildbehandlingar</li>
-                    <li> Google Analytics</li>
-                    <li> 30 dagars support</li>
+                    <li>Allt i Standard, plus:</li>
+                    <li>Upp till 10 sidor</li>
+                    <li>Avancerad SEO</li>
+                    <li>Bildspel & animationer</li>
+                    <li>5 bildbehandlingar</li>
+                    <li>Google Analytics</li>
+                    <li>30 dagars support</li>
                 </ul>
                 <a href="#kontakt" class="btn btn-primary btn-full">Välj Premium</a>
             </div>
@@ -933,21 +1015,35 @@
                 <p>Vi är här för att hjälpa er. Oavsett om ni har en klar idé eller bara en tanke, så tar vi det därifrån. Kostnadsfri konsultation ingår alltid.</p>
                 <div class="contact-details">
                     <div class="contact-item">
-                        <div class="contact-icon">📧</div>
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
                         <div>
                             <div style="color: var(--text-secondary); font-size: 0.875rem;">E-post</div>
                             <div>hej@nordicwebpartner.se</div>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📱</div>
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
                         <div>
                             <div style="color: var(--text-secondary); font-size: 0.875rem;">Telefon</div>
                             <div>070-XXX XX XX</div>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">⏱️</div>
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
                         <div>
                             <div style="color: var(--text-secondary); font-size: 0.875rem;">Svarstid</div>
                             <div>Inom 24 timmar</div>
@@ -981,13 +1077,29 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <div class="footer-logo-icon">N</div>
+                <div class="footer-logo-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00E5FF"/>
+                                <stop offset="100%" style="stop-color:#6366F1"/>
+                            </linearGradient>
+                            <linearGradient id="footerLogoGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FF6B6B"/>
+                                <stop offset="100%" style="stop-color:#00E5FF"/>
+                            </linearGradient>
+                        </defs>
+                        <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" fill="none" stroke="url(#footerLogoGrad)" stroke-width="3"/>
+                        <path d="M30 65 L30 35 L50 50 L70 35 L70 65" fill="none" stroke="url(#footerLogoGrad2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="50" cy="50" r="4" fill="#00E5FF"/>
+                    </svg>
+                </div>
                 <div class="footer-logo-text">Nordic Webpartner</div>
             </div>
             <div class="footer-links">
                 <a href="#tjanster">Tjänster</a>
                 <a href="#priser">Priser</a>
-                <a href="#om-oss">Om oss</a>
+                <a href="#om            <a href="#om-oss">Om oss</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
             <div class="footer-copy">© 2026 Nordic Webpartner. Alla rättigheter förbehållna.</div>
@@ -1013,7 +1125,7 @@
             this.reset();
         });
 
-        // Add scroll animation for sections
+        // Intersection Observer for scroll animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1029,11 +1141,25 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'rgba(5, 5, 8, 0.95)';
+            navLinks.style.padding = '2rem';
+            navLinks.style.backdropFilter = 'blur(20px)';
         });
     </script>
 </body>
