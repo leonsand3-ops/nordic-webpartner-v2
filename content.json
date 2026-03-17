@@ -1,0 +1,24 @@
+{
+  "title": "Nordic Webpartner | Vi bygger hemsidor som konverterar",
+  "description": "Professionella webbplatser för restauranger, butiker och småföretag. Modern design, snabb laddtid och synlig på Google.",
+  "hero": {
+    "headline": "Vi bygger hemsidor som konverterar",
+    "subheadline": "Professionella webbplatser för restauranger, butiker och småföretag. Modern design, snabb laddtid och synlig på Google – från 5 995 kr."
+  },
+  "services": {
+    "title": "Tjänster för din digitala framgång",
+    "description": "Vi hjälper företag i alla branscher att synas online och få fler kunder"
+  },
+  "pricing": {
+    "title": "Fasta priser, inga överraskningar",
+    "description": "Välj det paket som passar er bäst. Alla priser är exklusive moms."
+  },
+  "about": {
+    "title": "Din partner för digital framgång",
+    "text": "Nordic Webpartner är en svensk webbyrå som brinner för att hjälpa företag växa online. Vi kombinerar modern teknik med genomtänkt design för att skapa webbplatser som inte bara ser bra ut – de levererar resultat."
+  },
+  "contact": {
+    "email": "hej@nordicwebpartner.se",
+    "phone": "070-XXX XX XX"
+  }
+}

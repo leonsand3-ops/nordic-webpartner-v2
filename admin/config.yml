@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: leonsand3-ops/nordic-webpartner-v2
+  branch: main
+  base_url: https://leon-cms-oauth.leonsand3.workers.dev
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "content"
+    label: "Sidinnehåll"
+    files:
+      - label: "Hemsidan"
+        name: "content"
+        file: "content.json"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Beskrivning", name: "description", widget: "text" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Huvudrubrik", name: "headline", widget: "string" }
+              - { label: "Underrubrik", name: "subheadline", widget: "text" }
+          - label: "Tjänster"
+            name: "services"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Beskrivning", name: "description", widget: "text" }
+          - label: "Priser"
+            name: "pricing"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Beskrivning", name: "description", widget: "text" }
+          - label: "Om Oss"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "markdown" }
+          - label: "Kontakt"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "E-post", name: "email", widget: "string" }
+              - { label: "Telefon", name: "phone", widget: "string" }
